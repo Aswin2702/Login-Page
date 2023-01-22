@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "276176329770",
+    "project_id": "apptrail-cfba6",
+    "storage_bucket": "apptrail-cfba6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276176329770:android:e71210116e620dc4707753",
+        "android_client_info": {
+          "package_name": "com.example.app_vs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276176329770-nsf3qhj21l8r4r52dfrq0rde4ef8jnpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9gCwyEXjcguv0ol2o8G9lNGlnzSbuqkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276176329770-nsf3qhj21l8r4r52dfrq0rde4ef8jnpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
