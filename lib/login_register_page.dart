@@ -48,33 +48,9 @@ class _LoginPageState extends State<LoginPage> {
   Widget _errorMessage() {
     return Center(
       child: Text(
-        errorMessage == '' ? '' : 'Humm ? Invalid email or password',
-        style: TextStyle(color: Colors.red, fontSize: 14, fontFamily: 'SF-Pro'),
-      ),
-    );
-  }
-
-  Widget _submitButton() {
-    return Container(
-      width: 300,
-      height: 75,
-      decoration: BoxDecoration(
-        color: Color(0xff0962ff),
-        borderRadius: BorderRadius.circular(100),
-      ),
-      child: MaterialButton(
-        onPressed: isLogin
-            ? signInWithEmailAndPassword
-            : createUserWithEmailAndPassword,
-        child: Text(
-          isLogin ? 'Login' : 'Register',
-          style: const TextStyle(
-            fontFamily: 'SF-Pro',
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
+        errorMessage!,
+        style: const TextStyle(
+            color: Colors.red, fontSize: 14, fontFamily: 'SF-Pro'),
       ),
     );
   }
@@ -128,43 +104,44 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               const SizedBox(
-                height: 70,
+                height: 50,
               ),
-              Image.asset('images/user.png'),
+              isLogin
+                  ? Image.asset(
+                      'images/user.png',
+                      height: 100,
+                      width: 100,
+                    )
+                  : Container(),
               Align(
                 alignment: Alignment.center,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 0.0, top: 0),
-                  child: Text(
-                    isLogin ? 'Welcome Back' : 'Create Account',
-                    style: TextStyle(
-                      fontSize: 35,
-                      color: Color(0xff0C2551),
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'SF-Pro',
-                    ),
+                child: Text(
+                  isLogin ? 'Welcome Back' : 'Create Account',
+                  style: const TextStyle(
+                    fontSize: 35,
+                    color: Color(0xff0C2551),
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'SF-Pro',
                   ),
-                  //
                 ),
+              ),
+              const SizedBox(
+                width: 5,
               ),
               Align(
                 alignment: Alignment.center,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 0.0, top: 5),
-                  child: Text(
-                    isLogin ? 'Sign to continue' : 'Create an account',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'SF-Pro',
-                    ),
+                child: Text(
+                  isLogin ? 'Sign to continue' : 'Create an account',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'SF-Pro',
                   ),
-                  //
                 ),
               ),
-              SizedBox(
-                height: isLogin ? 30 : 12,
+              const SizedBox(
+                height: 15,
               ),
               //
               Visibility(
@@ -174,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
-                        padding: EdgeInsets.only(left: 20.0, bottom: 8),
+                        padding: const EdgeInsets.only(left: 20.0, bottom: 8),
                         child: Text(
                           "Name",
                           style: TextStyle(
@@ -204,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                           focusColor: const Color(0xff0962ff),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: const BorderSide(color: Colors.white),
                           ),
                           filled: true,
                           fillColor: Colors.white,
@@ -268,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
                     focusColor: const Color(0xff0962ff),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.white),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -303,6 +280,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: TextField(
                   controller: _controllerPassword,
+                  obscureText: true,
                   style: TextStyle(
                       fontSize: 19,
                       color: Colors.blue[900],
@@ -319,7 +297,7 @@ class _LoginPageState extends State<LoginPage> {
                     focusColor: const Color(0xff0962ff),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Colors.white),
                     ),
                     filled: true,
                     fillColor: Colors.white,
@@ -340,10 +318,17 @@ class _LoginPageState extends State<LoginPage> {
                 height: 5,
               ),
               Container(
-                width: scrWidth * 0.55,
+                width: scrWidth / 2,
                 height: 68,
                 decoration: BoxDecoration(
-                  color: Color(0xff0962ff),
+                  gradient: const LinearGradient(
+                    colors: [
+                      Colors.lightBlueAccent,
+                      Colors.blue,
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: MaterialButton(
